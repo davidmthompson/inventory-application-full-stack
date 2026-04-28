@@ -2,12 +2,10 @@
 A comprehensive, cross-platform solution for modern inventory management. This project features a robust web dashboard and a native iOS application, ensuring seamless data synchronization and real-time tracking.
 
 ## About the Project
-This application was designed to solve the complexities of inventory tracking by providing a unified experience across web and mobile. Whether managing warehouse stock from a desktop or scanning items on the go with an iPhone, this system provides a centralized source of truth.
+*Coming Soon*
 
-### Key Features:
-* **Real-time Inventory Updates:** Instant sync between the web dashboard and iOS app.
-* **Cross-Platform Accessibility:** Built with modern frameworks for high performance on any device.
-* **Scalable Architecture:** A decoupled backend ensures the system can grow with your needs.
+
+
 
 ## Tech Stack
 
