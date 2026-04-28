@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryColumn } from "typeorm"
+import { Column, Entity, PrimaryColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class InventoryItem {
@@ -6,29 +6,29 @@ export class InventoryItem {
     id!: number;
 
     @Column({length: 250, nullable: false})
-    name!: string
+    name!: string;
 
-    @Column({length: 500})
-    description?: string
+    @Column({length: 500, nullable: true}) // Cleaned up syntax
+    description?: string;
 
-    @Column({length: 80})
-    imgUrl?: string
+    @Column({length: 80, nullable: true})
+    imgUrl?: string;
 
     @Column({length: 25, unique: true, nullable: false})
-    sku!: string
+    sku!: string;
 
     @Column({type: "int", nullable: false})
-    price!: number
+    price!: number;
 
-    @Column({type: "text",})
-    availableMedium?: "Online" | "In Store"
+    @Column({type: "text", nullable: true})
+    availableMedium?: "Online" | "In Store";
 
     @Column({type: "boolean"})
-    isActive!: boolean
+    isActive!: boolean;
 
-    @Column({type: "datetime", nullable: false, default: new Date()})
-    createdAt!: Date
+    @CreateDateColumn() // Automatically sets the date on creation
+    createdAt!: Date;
 
-    @Column({type: "datetime", nullable: false, default: new Date()})
-    updateAt!: Date
+    @UpdateDateColumn() // Automatically updates the date on every change
+    updateAt!: Date;
 }

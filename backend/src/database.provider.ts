@@ -13,7 +13,7 @@ export const databaseProviders = [
         password: 'AGoodPassword',
         database: 'inventoryApp',
         entities: [
-            __dirname + '/../**/*.entity{.ts,.js}',
+            __dirname + '/**/*.entity{.ts,.js}',
         ],
         synchronize: true,
       });

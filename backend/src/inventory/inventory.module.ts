@@ -7,4 +7,5 @@ import { databaseProviders } from 'src/database.provider';
   controllers: [InventoryController],
   providers: [InventoryService, ...databaseProviders],
 })
+
 export class InventoryModule {}
