@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db_inventory
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: BeATiger
+      MYSQL_DATABASE: inventoryApp
+      MYSQL_USER: tiger
+      MYSQL_PASSWORD: AGoodPassword
+    ports:
+      - "1055:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-inventory
+    restart: always
+    ports:
+      - "8000:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: BeATiger
+    depends_on:
+      - mysql
+  nest: 
+    build: ./backend
+    container_name: backend
+    restart: always
+    ports:
+      - "6002:3000"
+    depends_on:
+      - mysql
+    environment:
+      - DB_HOST=mysql
+
+  next: 
+    build: ./web
+    container_name: frontend
+    restart: always
+    ports:
+      - "6001:3000"
+    depends_on:
+      - nest
+
+volumes:
+  mysql_data:
